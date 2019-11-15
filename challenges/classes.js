@@ -11,14 +11,14 @@ class CuboidMaker {
     }
 
     volume() {
-        const volume = this.length * this.width * this.height;
-        return volume;
+      return this.length * this.width * this.height;
+        
     };
 
 
-    surfaceArea= function() {
-        const surfaceArea = (this.length * this.width) + (this.length * this.height) + (this.height * this.width);
-        return surfaceArea;
+    surfaceArea() {
+    return  2*((this.length * this.width) + (this.length * this.height) + (this.height * this.width));
+        ;
     };
 
 }
