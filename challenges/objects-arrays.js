@@ -13,22 +13,47 @@
 // velociraptor, carnivorous, 15kg, 1.8m, Late Cretaceous
 
 // Using your dinosaur objects, log answers to these questions:
-
+const dino1 = {
+  name: 'tyrannosaurus',
+  diet: 'carnivorous',
+  weight: 7000,
+  length: 12,
+  period: 'Late Cretaceous',
+  roar: function(){
+    return "RAWERSRARARWERSARARARRRR!";
+  }
+}
 // How much did tyrannosaurus weigh?
-console.log();
+console.log(dino1.weight);
+
+const dino2 = {
+  name: 'velociraptor',
+  diet: 'carnivorous',
+  weight: 15,
+  length: 1.8,
+  period: 'Late Cretaceous'
+}
 
 // What was the diet of a velociraptor?
-console.log();
+console.log(dino2.diet);
+
+const dino3 = {
+  name: 'stegosaurus',
+  diet: 'herbivorous',
+  weight: 2000,
+  length: 9,
+  period: 'Late Jurassic'
+}
 
 // How long was a stegosaurus?
-console.log();
+console.log(dino3.length);
 
 // What time period did tyrannosaurus live in?
-console.log();
+console.log(dino1.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+console.log(dino1.roar());
 
 
 // ==== Arrays ====
@@ -51,8 +76,12 @@ const graduates = [
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array. This will be an array of strings.
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
-const universities = [];
-console.log(universities);
+const newArr = graduates.map((uni) => {
+  return {'University' : uni.university};
+});
+const values = Object.values(newArr);
+const universities = [values.sort()];
+console.log(universities); // 
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
 
@@ -60,6 +89,9 @@ The resulting contact information strings should have a space between the first 
 "Josh josh@example.com"
 
 Log the result of your new array. */
+const contact = graduates.map((info) => {
+  return {'name':info.first_name, 'email':info.email}
+});
 const contactInfo = [];
 console.log(contactInfo);
 
@@ -115,8 +147,13 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
-console.log(populationTotal);
+function tallyUpAnimals(zooAnimals){
+  const populationTotal = population.reduce(function(populationTotal, zooAnimals){
+    return populationTotal + zooAnimals.population;
+  }, 0);
+  return populationTotal;
+}
+
 
 
 /*
